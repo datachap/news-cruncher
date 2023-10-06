@@ -1,16 +1,9 @@
-runtime: python311 # or another supported version
-
-instance_class: F2
+runtime: python39
+entrypoint: gunicorn -b :$PORT app:app
 
 env_variables:
-  BUCKET_NAME: "example-gcs-bucket"
+  # Add any environment variables your app requires
+  FLASK_ENV: production
 
-handlers:
-# Matches requests to /images/... to files in static/images/...
-- url: /images
-  static_dir: static/images
-
-- url: /.*
-  secure: always
-  redirect_http_response_code: 301
-  script: auto
+automatic_scaling:
+  target_cpu_utilization: 0.65
