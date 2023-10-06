@@ -2,9 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, redirect, url_for
 from transformers import AutoModelForSeq2SeqLM, BartTokenizer
-import re
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
-from flask import Flask
 
 app = Flask(__name__)
 
@@ -17,8 +15,6 @@ def summary_generate(text):
     summary_ids = model.generate(inputs, max_length=max_length, min_length=150, length_penalty=2.0, num_beams=4, early_stopping=True)
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return summary
-# Create a list to store crawled data
-links_data = []
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -40,13 +36,13 @@ def index():
             content = soup.get_text()
             summary = summary_generate(content)
 
-            links_data.append({'title': title, 'url': url, 'content': content, 'summary': summary})
+            return render_template('index.html', title=title, url=url, content=content, summary=summary)
 
         except Exception as e:
             error_message = f"An error occurred: {str(e)}"
             return render_template('index.html', error_message=error_message)
 
-    return render_template('index.html', links_data=links_data)
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=8080)
