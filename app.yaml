@@ -9,6 +9,4 @@ handlers:
 - url: /.*
   script: auto
 
-env_variables:
-  # Add any environment variables your app requires
-  FLASK_ENV: production
+
