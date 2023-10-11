@@ -1,88 +1,18 @@
-
-body {
-    font-family: 'Roboto';
-    background-color: #FFF5E0;
-    color: #141E46;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+body {font-family: 'Nunito', sans-serif;};
+nav.navbar {
+height: 6rem !important;
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
 }
+::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;border-radius:6px}::-webkit-scrollbar-thumb{background:#d5d5d5;border-radius:6px}::-webkit-scrollbar-thumb:hover{background:#c4c4c4}
 
-h1 {
-    color: #336699;
-    text-align: center;
-    font-size: 48px;
-}
-
-h2 {
-    color: #C70039;
-}
-
-.element, .element-title {
-    font-weight: bold;
-    color: #FF6969;
-    
-}
-
-.element-title {
-    border: 1px black solid;
-    padding: 5px;
-    border-radius: 5px;
-
-}
 .element-article {
-    display: none;
+display: none;
 }
 .expanded {
-    display: block;
-}
-
-.element-article {
-    display: none;
-    margin-top: 10px;
+display: block;
 }
 
 .element-article.expanded {
-    display: block;
+display: block;
 }
-
-
-a {
-    text-decoration: none;
-    color: #C70039;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-.lefty {
-    float: left;
-    width: 50%;
-    margin-bottom: 10px;
-}
-
-.summary {
-    font-size: 16px;
-}
-h2 {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    font-size: 40px;
-  }
-  
-  .link {
-    font-size: 12px;
-  }
-  
-  .element {
-    width: 50%;
-    margin-top: 10px;
-  }
-  
-  .element-title {
-    cursor: pointer;
-    margin: 10px auto;
-    display: block;
-    text-align: center;
-  }
-  
-
-  
