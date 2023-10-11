@@ -21,6 +21,11 @@ def singleNewsScraper(url):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
     }
     urlLink = url
+    # Split the URL by '/' and take the last part
+    last_part = url.split("/")[-1]
+
+    # Replace '-' with ' ' and capitalize the first letter
+    title = last_part.replace("-", " ").capitalize()
     response = requests.get(url, headers=headers)
 
     # Use BeautifulSoup to parse the HTML content of the response
@@ -33,7 +38,7 @@ def singleNewsScraper(url):
     
     content = re.sub(r'[^\S ]+', ' ', paragraphs).strip()
     summary = newsSummaryTagging.newsSummarizer(content)
-    return urlLink, summary, content
+    return title, summary, content
 
 
 def newsScraper(urls):

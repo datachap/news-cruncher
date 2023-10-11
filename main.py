@@ -10,8 +10,8 @@ def index():
 @app.route('/specific-crawler', methods=['POST'])
 def singleNewsScraper():
     url = request.form.get('url')
-    urlLink, content, summary = newsScraperSummarizer.singleNewsScraper(url)
-    return render_template('crawl.html', urlLink=urlLink, content=content, summary=summary)
+    title, summary, content = newsScraperSummarizer.singleNewsScraper(url)
+    return render_template('crawl.html', title=title, summary=summary, content=content)
 
 @app.route('/newsCrawler', methods=['GET', 'POST'])
 def newsCrawler():
