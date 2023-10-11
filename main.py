@@ -13,7 +13,7 @@ def singleNewsScraper():
     urlLink, content, summary = newsScraperSummarizer.singleNewsScraper(url)
     return render_template('crawl.html', urlLink=urlLink, content=content, summary=summary)
 
-@app.route('/newsCrawler', methods=['POST'])
+@app.route('/newsCrawler', methods=['GET', 'POST'])
 def newsCrawler():
     return render_template("allNews.html")
 
